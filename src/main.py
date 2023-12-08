@@ -6,9 +6,12 @@ from budget_app.create_spend_chart import create_spend_chart
 from polygon_area_calculator.rectangle import Rectangle
 from polygon_area_calculator.square import Square
 from unittest import main
-
 from arithmetic_arranger.arithmetic_arranger import arithmetic_arranger
 from time_calculator.time_calculator import add_time
+from probability_calculator.hat import random
+from probability_calculator.hat import Hat
+from probability_calculator.experiment import experiment
+
 # arithmetic_arranger example code
 print(arithmetic_arranger(["32 + 698", "3801 - 2", "45 + 43", "123 + 49"]))
 # time_calculator example code
@@ -43,8 +46,19 @@ sq.set_side(4)
 print(sq.get_diagonal())
 print(sq)
 
+random.seed(95)
+hat = Hat(blue=4, red=2, green=6)
+probability = experiment(
+    hat=hat,
+    expected_balls={"blue": 2,
+                    "red": 1},
+    num_balls_drawn=4,
+    num_experiments=3000)
+print("Probability:", probability)
+
 # Run unit tests automatically
 pytest_main(['-vv'])
 unittest_main(module='tests.test_time_calculator', exit=False)
 unittest_main(module='tests.test_budget_app', exit=False)
 unittest_main(module='tests.test_polygon_area_calculator', exit=False)
+unittest_main(module='tests.test_probability_calculator', exit=False)
