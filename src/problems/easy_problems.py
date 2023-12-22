@@ -20,11 +20,34 @@ class Solution:
             if index >= 0:
                 return [firstI, index]
         return None
+    def maxScore(self, binaryString):
+        counterLeft = binaryString.count('0', 0, 1)
+        counterRight = binaryString.count('1', 1)
+        max = counterLeft + counterRight
+        i=1
+        while i < len(binaryString)-1:
+            if (binaryString[i] == '0'):
+                counterLeft += 1
+            elif (binaryString[i] == '1'):
+                counterRight -= 1
+            sum = counterLeft + counterRight
+            max = max if max > sum else sum
+            i+=1
+        return max
 
 sol = Solution()
-print(sol.twoSum([2,7,11,15], 9), [0,1])
-print(sol.twoSum([3,2,4], 6), [1,2])
-print(sol.twoSum([0,0,0,3,0,0,0,4], 7), [3,7])
+print(sol.maxScore("011101"), 5)
+print(sol.maxScore("00111"), 5)
+print(sol.maxScore("1111"), 3)
+print(sol.maxScore("00"), 1)
+
+# print(sol.maxScore("01"), 3)
+# print(sol.maxScore("11"), 3)
+# print(sol.maxScore("10"), 3)
+
+# print(sol.twoSum([2,7,11,15], 9), [0,1])
+# print(sol.twoSum([3,2,4], 6), [1,2])
+# print(sol.twoSum([0,0,0,3,0,0,0,4], 7), [3,7])
 
 # print(sol.buyChoco([1,2,2], 3), 0)
 # print(sol.buyChoco([3,2,3], 3), 3)
