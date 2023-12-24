@@ -1,3 +1,13 @@
+def generateAdjacentStrings(length):
+    alternatingString = ""
+    for i in range(length+1):
+        alternatingString += "0" if i % 2 else "1"
+    return [alternatingString[1:], alternatingString[:len(alternatingString)-1]]
+
+
+def countStringsDifference(str1, str2):
+    return sum(1 for a, b in zip(str1, str2) if a != b)
+
 class Solution:
     def maxProductionDifference(self, nums):
         nums.sort()
@@ -34,12 +44,24 @@ class Solution:
             max = max if max > sum else sum
             i+=1
         return max
-
+    def minOperations(self, binaryString):
+        [oFirstString, iFirstString] = generateAdjacentStrings(len(binaryString))
+        oFirstMaskDiff = countStringsDifference(binaryString, oFirstString)
+        iFirstMaskDiff = countStringsDifference(binaryString, iFirstString)
+        return min(oFirstMaskDiff, iFirstMaskDiff)
+        
 sol = Solution()
-print(sol.maxScore("011101"), 5)
-print(sol.maxScore("00111"), 5)
-print(sol.maxScore("1111"), 3)
-print(sol.maxScore("00"), 1)
+print(sol.minOperations("01001"), 2)
+print(sol.minOperations("0100"), 1)
+print(sol.minOperations("1111"), 2)
+print(sol.minOperations("000"), 1)
+print(sol.minOperations("10"), 0)
+print(sol.minOperations("0"), 0)
+        
+# print(sol.maxScore("011101"), 5)
+# print(sol.maxScore("00111"), 5)
+# print(sol.maxScore("1111"), 3)
+# print(sol.maxScore("00"), 1)
 
 # print(sol.maxScore("01"), 3)
 # print(sol.maxScore("11"), 3)
