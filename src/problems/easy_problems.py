@@ -49,14 +49,20 @@ class Solution:
         oFirstMaskDiff = countStringsDifference(binaryString, oFirstString)
         iFirstMaskDiff = countStringsDifference(binaryString, iFirstString)
         return min(oFirstMaskDiff, iFirstMaskDiff)
+    def isPalindrome(self, number):
+        return str(number) == str(number)[::-1]
         
 sol = Solution()
-print(sol.minOperations("01001"), 2)
-print(sol.minOperations("0100"), 1)
-print(sol.minOperations("1111"), 2)
-print(sol.minOperations("000"), 1)
-print(sol.minOperations("10"), 0)
-print(sol.minOperations("0"), 0)
+print(sol.isPalindrome(121), True)
+print(sol.isPalindrome(-121), False)
+print(sol.isPalindrome(10), False)
+
+# print(sol.minOperations("01001"), 2)
+# print(sol.minOperations("0100"), 1)
+# print(sol.minOperations("1111"), 2)
+# print(sol.minOperations("000"), 1)
+# print(sol.minOperations("10"), 0)
+# print(sol.minOperations("0"), 0)
         
 # print(sol.maxScore("011101"), 5)
 # print(sol.maxScore("00111"), 5)
