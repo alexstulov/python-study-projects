@@ -50,3 +50,23 @@ class Solution:
         return min(oFirstMaskDiff, iFirstMaskDiff)
     def isPalindrome(self, number):
         return str(number) == str(number)[::-1]
+    def romanToInt(self, romanNumber):
+        vocabulary = {
+            'I': 1,
+            'V': 5,
+            'X': 10,
+            'L': 50,
+            'C': 100,
+            'D': 500,
+            'M': 1000
+        }
+        number = 0
+        
+        for i in range(len(romanNumber) - 1):
+            if vocabulary[romanNumber[i]] < vocabulary[romanNumber[i+1]]:
+                number -= vocabulary[romanNumber[i]]
+            else:
+                number += vocabulary[romanNumber[i]]
+        return number + vocabulary[romanNumber[-1]]
+
+sol = Solution()

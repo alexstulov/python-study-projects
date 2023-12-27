@@ -40,6 +40,11 @@ class TestStringMethods(unittest.TestCase):
         self.assertEqual(self.solution.isPalindrome(121), True)
         self.assertEqual(self.solution.isPalindrome(-121), False)
         self.assertEqual(self.solution.isPalindrome(10), False)
+        
+    def testRomanToInt(self):
+        self.assertEqual(self.solution.romanToInt('III'), 3)
+        self.assertEqual(self.solution.romanToInt('LVIII'), 58)
+        self.assertEqual(self.solution.romanToInt('MCMXCIV'), 1994)
 
 if __name__ == '__main__':
     unittest.main()
