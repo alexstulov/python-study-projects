@@ -45,6 +45,12 @@ class TestStringMethods(unittest.TestCase):
         self.assertEqual(self.solution.romanToInt('III'), 3)
         self.assertEqual(self.solution.romanToInt('LVIII'), 58)
         self.assertEqual(self.solution.romanToInt('MCMXCIV'), 1994)
+        
+    def testLongestCommonPrefix(self):
+        self.assertEqual(self.solution.longestCommonPrefix(['flower','flow','flight']), 'fl')
+        self.assertEqual(self.solution.longestCommonPrefix(['dog', 'racecar', 'car']), '')
+        self.assertEqual(self.solution.longestCommonPrefix(['a']), 'a')
+        
 
 if __name__ == '__main__':
     unittest.main()

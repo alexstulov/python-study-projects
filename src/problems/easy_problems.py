@@ -68,5 +68,13 @@ class Solution:
             else:
                 number += vocabulary[romanNumber[i]]
         return number + vocabulary[romanNumber[-1]]
-
-sol = Solution()
+    def longestCommonPrefix(self, words):
+        words.sort()
+        result = ''
+        first = words[0]
+        last = words[-1]
+        for i in range(min(len(first),len(last))):
+            if (first[i] != last[i]):
+                return result
+            result += first[i]
+        return result
