@@ -78,3 +78,20 @@ class Solution:
                 return result
             result += first[i]
         return result
+    def correspondingBrackets(self, bracketsLine):
+        bracketsDictionary = {
+            '(': ')',
+            '{': '}',
+            '[': ']',
+        }
+        openBrackets = []
+        for bracket in bracketsLine:
+            if bracket in bracketsDictionary.keys():
+                openBrackets.append(bracket)
+                continue
+            if len(openBrackets) > 0 and bracketsDictionary[openBrackets[-1]] == bracket:
+                openBrackets.pop()
+                continue
+            return False
+            
+        return not len(openBrackets)

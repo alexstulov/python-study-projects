@@ -51,6 +51,14 @@ class TestStringMethods(unittest.TestCase):
         self.assertEqual(self.solution.longestCommonPrefix(['dog', 'racecar', 'car']), '')
         self.assertEqual(self.solution.longestCommonPrefix(['a']), 'a')
         
+    def testCorrespondingBrackets(self):
+        self.assertEqual(self.solution.correspondingBrackets("()"), True)
+        self.assertEqual(self.solution.correspondingBrackets("()[]{}"), True)
+        self.assertEqual(self.solution.correspondingBrackets("]"), False)
+        self.assertEqual(self.solution.correspondingBrackets("("), False)
+        self.assertEqual(self.solution.correspondingBrackets("(]"), False)
+        self.assertEqual(self.solution.correspondingBrackets("((())]"), False)
+        self.assertEqual(self.solution.correspondingBrackets("((([))"), False)
 
 if __name__ == '__main__':
     unittest.main()
