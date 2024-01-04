@@ -60,5 +60,8 @@ class TestStringMethods(unittest.TestCase):
         self.assertEqual(self.solution.correspondingBrackets("((())]"), False)
         self.assertEqual(self.solution.correspondingBrackets("((([))"), False)
 
+    def testRemoveElement(self):
+        self.assertEqual(self.solution.removeElement([3,2,2,3], 3), 2)
+        self.assertEqual(self.solution.removeElement([0,1,2,2,3,0,4,2], 2), 5)
 if __name__ == '__main__':
     unittest.main()

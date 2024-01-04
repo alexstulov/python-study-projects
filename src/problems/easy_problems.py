@@ -95,3 +95,7 @@ class Solution:
             return False
             
         return not len(openBrackets)
+    def removeElement(self, nums, val):
+        # in-place algorithm approach
+        while val in nums: nums.remove(val)
+        return len(nums)
