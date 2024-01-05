@@ -99,3 +99,13 @@ class Solution:
         # in-place algorithm approach
         while val in nums: nums.remove(val)
         return len(nums)
+    def findSubstring(self, haystack, needle):
+        # let's imitate haystack.find(needle)
+        i = 0
+        needleSize = len(needle)
+        haystackSize = len(haystack)
+        while i+needleSize <= haystackSize:
+            if haystack[i:i+needleSize] == needle:
+                return i
+            i+=1
+        return -1

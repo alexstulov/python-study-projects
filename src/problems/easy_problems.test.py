@@ -63,5 +63,9 @@ class TestStringMethods(unittest.TestCase):
     def testRemoveElement(self):
         self.assertEqual(self.solution.removeElement([3,2,2,3], 3), 2)
         self.assertEqual(self.solution.removeElement([0,1,2,2,3,0,4,2], 2), 5)
+    def testFindSubstring(self):
+        self.assertEqual(self.solution.findSubstring("sadbutsad","sad"), 0)
+        self.assertEqual(self.solution.findSubstring("saturdaysad","sad"), 8)
+        self.assertEqual(self.solution.findSubstring("leetcode","leeto"),- 1)
 if __name__ == '__main__':
     unittest.main()
