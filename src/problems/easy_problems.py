@@ -109,3 +109,16 @@ class Solution:
                 return i
             i+=1
         return -1
+    def lengthOfLastWord(self, phrase):
+        # phrase = phrase.split()
+        # if phrase:
+        #     return len(phrase[-1])
+        phraseLength = len(phrase)
+        start = 0
+        end = 0
+        for i in range(phraseLength):
+            if phrase[i] == ' ' and i+1 < phraseLength and phrase[i+1] != ' ':
+                start=i+1
+            elif phrase[i] != ' ' and (i+1 == phraseLength or (i+1 < phraseLength and phrase[i+1] == ' ')):
+                end = i
+        return end - start + 1

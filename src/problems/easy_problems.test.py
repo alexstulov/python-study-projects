@@ -67,5 +67,12 @@ class TestStringMethods(unittest.TestCase):
         self.assertEqual(self.solution.findSubstring("sadbutsad","sad"), 0)
         self.assertEqual(self.solution.findSubstring("saturdaysad","sad"), 8)
         self.assertEqual(self.solution.findSubstring("leetcode","leeto"),- 1)
+    def testLengthOfLastWord(self):
+        self.assertEqual(self.solution.lengthOfLastWord("i"), 1)
+        self.assertEqual(self.solution.lengthOfLastWord("i "), 1)
+        self.assertEqual(self.solution.lengthOfLastWord(" i"), 1)
+        self.assertEqual(self.solution.lengthOfLastWord('Hello World'), 5)
+        self.assertEqual(self.solution.lengthOfLastWord("   fly me   to   the moon  "), 4)
+        self.assertEqual(self.solution.lengthOfLastWord("luffy is still joyboy"), 6)
 if __name__ == '__main__':
     unittest.main()
