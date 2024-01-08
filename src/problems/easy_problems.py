@@ -1,3 +1,5 @@
+from icecream import ic
+
 def generateAdjacentStrings(length):
     alternatingString = ""
     for i in range(length+1):
@@ -122,3 +124,19 @@ class Solution:
             elif phrase[i] != ' ' and (i+1 == phraseLength or (i+1 < phraseLength and phrase[i+1] == ' ')):
                 end = i
         return end - start + 1
+    def searchInsertPosition(self, nums, target):
+        left, right = 0, len(nums)-1
+        while left <= right:
+            middle = (left+right) // 2
+            potentialMatch = nums[middle]
+            if target == potentialMatch:
+                return middle
+            elif target < potentialMatch:
+                right = middle - 1
+            else:
+                left = middle + 1
+        while middle > 0 and nums[middle] > target:
+            middle-=1
+        while middle < len(nums) and nums[middle] < target:
+            middle+=1
+        return middle
