@@ -1,5 +1,3 @@
-from icecream import ic
-
 def generateAdjacentStrings(length):
     alternatingString = ""
     for i in range(length+1):
@@ -140,3 +138,16 @@ class Solution:
         while middle < len(nums) and nums[middle] < target:
             middle+=1
         return middle
+    def plusOne(self, digits):
+        # return list(map(int, list(str(int(''.join(map(str, digits)))+1)))) - easier, but less effective
+        addition = 1
+        for i in reversed(range(len(digits))):
+            newDigit = digits[i]+addition
+            if newDigit == 10:
+                digits[i] = 0
+            else:
+                digits[i] = newDigit
+                addition = 0
+        if addition:
+            digits = [addition]+digits
+        return digits

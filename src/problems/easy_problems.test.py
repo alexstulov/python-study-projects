@@ -63,10 +63,12 @@ class TestStringMethods(unittest.TestCase):
     def testRemoveElement(self):
         self.assertEqual(self.solution.removeElement([3,2,2,3], 3), 2)
         self.assertEqual(self.solution.removeElement([0,1,2,2,3,0,4,2], 2), 5)
+    
     def testFindSubstring(self):
         self.assertEqual(self.solution.findSubstring("sadbutsad","sad"), 0)
         self.assertEqual(self.solution.findSubstring("saturdaysad","sad"), 8)
         self.assertEqual(self.solution.findSubstring("leetcode","leeto"),- 1)
+    
     def testLengthOfLastWord(self):
         self.assertEqual(self.solution.lengthOfLastWord("i"), 1)
         self.assertEqual(self.solution.lengthOfLastWord("i "), 1)
@@ -74,6 +76,7 @@ class TestStringMethods(unittest.TestCase):
         self.assertEqual(self.solution.lengthOfLastWord('Hello World'), 5)
         self.assertEqual(self.solution.lengthOfLastWord("   fly me   to   the moon  "), 4)
         self.assertEqual(self.solution.lengthOfLastWord("luffy is still joyboy"), 6)
+    
     def testSearchInsertPosition(self):
         self.assertEqual(self.solution.searchInsertPosition([1],0), 0)
         self.assertEqual(self.solution.searchInsertPosition([1,3,5],2), 1)
@@ -81,5 +84,13 @@ class TestStringMethods(unittest.TestCase):
         self.assertEqual(self.solution.searchInsertPosition([1,3,5,6],2), 1)
         self.assertEqual(self.solution.searchInsertPosition([1,3,5,6],7), 4)
         self.assertEqual(self.solution.searchInsertPosition([2,7,8,9,10],9), 3)
+        
+    def testPlusOne(self):
+        self.assertEqual(self.solution.plusOne([1,2,3]),[1,2,4])
+        self.assertEqual(self.solution.plusOne([4,3,2,1]),[4,3,2,2])
+        self.assertEqual(self.solution.plusOne([9]),[1,0])
+        self.assertEqual(self.solution.plusOne([6,1,4,5,3,9,0,1,9,5,1,8,6,7,0,5,5,4,3]),[6,1,4,5,3,9,0,1,9,5,1,8,6,7,0,5,5,4,4])
+        self.assertEqual(self.solution.plusOne([7,2,8,5,0,9,1,2,9,5,3,6,6,7,3,2,8,4,3,7,9,5,7,7,4,7,4,9,4,7,0,1,1,1,7,4,0,0,6]),
+        [7,2,8,5,0,9,1,2,9,5,3,6,6,7,3,2,8,4,3,7,9,5,7,7,4,7,4,9,4,7,0,1,1,1,7,4,0,0,7])
 if __name__ == '__main__':
     unittest.main()
