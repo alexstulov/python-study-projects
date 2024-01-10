@@ -92,5 +92,12 @@ class TestStringMethods(unittest.TestCase):
         self.assertEqual(self.solution.plusOne([6,1,4,5,3,9,0,1,9,5,1,8,6,7,0,5,5,4,3]),[6,1,4,5,3,9,0,1,9,5,1,8,6,7,0,5,5,4,4])
         self.assertEqual(self.solution.plusOne([7,2,8,5,0,9,1,2,9,5,3,6,6,7,3,2,8,4,3,7,9,5,7,7,4,7,4,9,4,7,0,1,1,1,7,4,0,0,6]),
         [7,2,8,5,0,9,1,2,9,5,3,6,6,7,3,2,8,4,3,7,9,5,7,7,4,7,4,9,4,7,0,1,1,1,7,4,0,0,7])
+    
+    def testAddBinary(self):
+        self.assertEqual(self.solution.addBinary('11', '1'), '100')
+        self.assertEqual(self.solution.addBinary('111', '1'), '1000')
+        self.assertEqual(self.solution.addBinary('1010', '1011'), '10101')
+        self.assertEqual(self.solution.addBinary('100', '110010'), '110110')
+
 if __name__ == '__main__':
     unittest.main()

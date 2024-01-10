@@ -1,4 +1,3 @@
-from icecream import ic
 def generateAdjacentStrings(length):
     alternatingString = ""
     for i in range(length+1):
@@ -153,51 +152,19 @@ class Solution:
             digits = [addition]+digits
         return digits
     def addBinary(self, a, b):
-        result = []
-        addition = 0
-        lengthA = len(a)
-        lengthB = len(b)
-        for i in range(min(lengthA,lengthB)):
-            [temporaryResult, temporaryAddition] = countBinarySum(int(a[lengthA-i-1]), int(b[lengthB-i-1]), addition)
-            result += temporaryResult
-            addition = temporaryAddition
-        
-        if lengthA < lengthB:
-            for i in reversed(range(len(b[0:lengthB-lengthA]))):
-                [temporaryResult, temporaryAddition] = countBinarySum(0, int(b[i]), addition)
-                result += temporaryResult
-                addition = temporaryAddition
-        elif lengthB < lengthA:
-            for i in reversed(range(len(a[0:lengthA-lengthB]))):
-                [temporaryResult, temporaryAddition] = countBinarySum(0, int(a[i]), addition)
-                result += temporaryResult
-                addition = temporaryAddition
-        
-        if addition:
-            result.append(str(addition))
-        result.reverse()
-        return ''.join(result)
-    
-def countBinarySum(a, b, addition):
-    temporarySum = a+b+addition
-    result = list()
-    if temporarySum == 3:
-        result.append('1')
-        addition = 1
-    elif temporarySum == 2:
-        result.append('0')
-        addition = 1
-    elif temporarySum == 1:
-        result.append('1')
-        addition = 0
-    else:
-        result.append('0')
-        addition = 0
-    return [result, addition]
-    
-    
-sol = Solution()
-ic(sol.addBinary('11', '1'), '100')
-ic(sol.addBinary('111', '1'), '1000')
-ic(sol.addBinary('1010', '1011'), '10101')
-ic(sol.addBinary('100', '110010'), '110110')
+        s = []
+        carry = 0
+        i = len(a) - 1
+        j = len(b) - 1
+
+        while i >= 0 or j >= 0 or carry:
+            if i >= 0:
+                carry += int(a[i])
+                i -= 1
+            if j >= 0:
+                carry += int(b[j])
+                j -= 1
+            s.append(str(carry % 2))
+            carry //= 2
+
+        return ''.join(reversed(s))
