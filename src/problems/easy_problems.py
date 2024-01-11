@@ -168,3 +168,25 @@ class Solution:
             carry //= 2
 
         return ''.join(reversed(s))
+    def mySqrt(self, number):
+        # binary search method with half list optimization
+        if (number == 0 or number == 1):
+            return number
+        l = 1
+        r = number // 2 # squared result cannot be twice big
+        while l <= r:
+            mid = (l+r)//2
+            powMid = mid*mid
+            if powMid == number:
+                return mid
+            elif powMid > number:
+                r = mid-1
+            elif powMid < number:
+                l = mid+1
+                result = mid
+        return result
+        # brute force
+        # i = 0
+        # while i*i <= number:
+        #     i+=1
+        # return i-1

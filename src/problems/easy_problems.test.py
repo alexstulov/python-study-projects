@@ -99,5 +99,12 @@ class TestStringMethods(unittest.TestCase):
         self.assertEqual(self.solution.addBinary('1010', '1011'), '10101')
         self.assertEqual(self.solution.addBinary('100', '110010'), '110110')
 
+    def testMySqrt(self):
+        self.assertEqual(self.solution.mySqrt(0),0)
+        self.assertEqual(self.solution.mySqrt(1),1)
+        self.assertEqual(self.solution.mySqrt(4),2)
+        self.assertEqual(self.solution.mySqrt(8),2)
+        self.assertEqual(self.solution.mySqrt(9),3)
+        self.assertEqual(self.solution.mySqrt(15129),123)
 if __name__ == '__main__':
     unittest.main()
