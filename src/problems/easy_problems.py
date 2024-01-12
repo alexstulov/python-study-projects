@@ -8,6 +8,7 @@ def countStringsDifference(str1, str2):
     return sum(1 for a, b in zip(str1, str2) if a != b)
 
 class Solution:
+    stairsSteps = [0,1,2]
     def maxProductionDifference(self, nums):
         nums.sort()
         nums_size = len(nums)
@@ -169,6 +170,11 @@ class Solution:
 
         return ''.join(reversed(s))
     def mySqrt(self, number):
+        # brute force
+        # i = 0
+        # while i*i <= number:
+        #     i+=1
+        # return i-1
         # binary search method with half list optimization
         if (number == 0 or number == 1):
             return number
@@ -185,8 +191,10 @@ class Solution:
                 l = mid+1
                 result = mid
         return result
-        # brute force
-        # i = 0
-        # while i*i <= number:
-        #     i+=1
-        # return i-1
+    def climbStairs(self, n): # dynamic programming solution
+        if len(self.stairsSteps) > n:
+            return self.stairsSteps[n]
+        i = len(self.stairsSteps)-1
+        for i in range(i, n):
+            self.stairsSteps.append(self.stairsSteps[i]+self.stairsSteps[i-1])
+        return self.stairsSteps[n]

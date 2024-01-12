@@ -106,5 +106,14 @@ class TestStringMethods(unittest.TestCase):
         self.assertEqual(self.solution.mySqrt(8),2)
         self.assertEqual(self.solution.mySqrt(9),3)
         self.assertEqual(self.solution.mySqrt(15129),123)
+        
+    def testClimbStairs(self):
+        self.assertEqual(self.solution.climbStairs(6), 13)
+        self.assertEqual(self.solution.climbStairs(2), 2)
+        self.assertEqual(self.solution.climbStairs(3), 3)
+        self.assertEqual(self.solution.climbStairs(4), 5)
+        self.assertEqual(self.solution.climbStairs(5), 8)
+        self.assertEqual(self.solution.climbStairs(35), 14930352)
+        
 if __name__ == '__main__':
     unittest.main()
