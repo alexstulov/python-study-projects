@@ -1,5 +1,5 @@
 import unittest
-from easy_problems import Solution
+from easy_problems import Solution, ListNode
 
 class TestStringMethods(unittest.TestCase):
     solution = Solution()
@@ -115,5 +115,10 @@ class TestStringMethods(unittest.TestCase):
         self.assertEqual(self.solution.climbStairs(5), 8)
         self.assertEqual(self.solution.climbStairs(35), 14930352)
         
+    def testUniqueLinkedList(self):
+        self.assertEqual(self.solution.uniqueLinkedList(ListNode(1,ListNode(1,ListNode(2)))).toArray(),[1,2])
+        self.assertEqual(self.solution.uniqueLinkedList(ListNode(1,ListNode(1,ListNode(2,ListNode(3,ListNode(3)))))).toArray(),[1,2,3])
+        self.assertEqual(self.solution.uniqueLinkedList(ListNode(1,ListNode(1,ListNode(1)))).toArray(),[1])
+
 if __name__ == '__main__':
     unittest.main()

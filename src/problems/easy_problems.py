@@ -198,3 +198,23 @@ class Solution:
         for i in range(i, n):
             self.stairsSteps.append(self.stairsSteps[i]+self.stairsSteps[i-1])
         return self.stairsSteps[n]
+    def uniqueLinkedList(self, head):
+        temp = head
+        while temp and temp.next:
+            if temp.next.val == temp.val:
+                temp.next = temp.next.next
+            else:
+                temp = temp.next
+        return head
+        
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+    def toArray(self):
+        temp = []
+        while self:
+            temp.append(self.val)
+            self = self.next
+        return temp
+    
