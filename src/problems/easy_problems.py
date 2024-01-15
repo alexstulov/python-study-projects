@@ -7,6 +7,17 @@ def generateAdjacentStrings(length):
 def countStringsDifference(str1, str2):
     return sum(1 for a, b in zip(str1, str2) if a != b)
 
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+    def toArray(self):
+        temp = []
+        while self:
+            temp.append(self.val)
+            self = self.next
+        return temp
+    
 class Solution:
     stairsSteps = [0,1,2]
     def maxProductionDifference(self, nums):
@@ -206,15 +217,19 @@ class Solution:
             else:
                 temp = temp.next
         return head
-        
-class ListNode:
-    def __init__(self, val=0, next=None):
-        self.val = val
-        self.next = next
-    def toArray(self):
-        temp = []
-        while self:
-            temp.append(self.val)
-            self = self.next
-        return temp
+    def mergeSortedLists(self, nums1, m, nums2, n):
+        for i in range(n):
+            nums1[m+i]=nums2[i-n]
+        noSwaps = False
+        for i in reversed(range(m+n)): # bubble sort here with no-swap check
+            noSwaps=True
+            for j in range(i):
+                if (nums1[j]>nums1[j+1]):
+                    temp = nums1[j+1]
+                    nums1[j+1]=nums1[j]
+                    nums1[j]=temp
+                    noSwaps=False
+            if(noSwaps):
+                break
+        return nums1
     
