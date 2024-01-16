@@ -1,3 +1,5 @@
+from icecream import ic
+from collections import Counter
 def generateAdjacentStrings(length):
     alternatingString = ""
     for i in range(length+1):
@@ -218,10 +220,10 @@ class Solution:
                 temp = temp.next
         return head
     def mergeSortedLists(self, nums1, m, nums2, n):
-        for i in range(n):
+        for i in range(n): # join lists in-place in nums1
             nums1[m+i]=nums2[i-n]
         noSwaps = False
-        for i in reversed(range(m+n)): # bubble sort here with no-swap check
+        for i in reversed(range(m+n)): # bubble sort here with no-swaps check
             noSwaps=True
             for j in range(i):
                 if (nums1[j]>nums1[j+1]):
@@ -232,4 +234,14 @@ class Solution:
             if(noSwaps):
                 break
         return nums1
-    
+    def majorityElement(self, nums): # frequency counter approach
+        theDict = Counter(nums) # a bit faster
+        majority = len(nums)/2
+        result = nums[0]
+        # theDict = dict()
+        # for i in nums:
+        #     theDict[i]=theDict.get(i,0)+1
+        for key,value in theDict.items():
+            if value > majority:
+                result = key
+        return result

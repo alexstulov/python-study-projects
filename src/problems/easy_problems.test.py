@@ -126,5 +126,12 @@ class TestStringMethods(unittest.TestCase):
         self.assertEqual(self.solution.mergeSortedLists([2,0],1,[1],1), [1,2])
         self.assertEqual(self.solution.mergeSortedLists([1,2,3,0,0,0],3,[2,5,6],3), [1,2,2,3,5,6])
         self.assertEqual(self.solution.mergeSortedLists([1,2,4,5,6,0],5,[3],1), [1,2,3,4,5,6])
+        
+    def testMajorityElement(self):
+        self.assertEqual(self.solution.majorityElement([1]),1)
+        self.assertEqual(self.solution.majorityElement([-1,-1,-1,0,0,-1]),-1)
+        self.assertEqual(self.solution.majorityElement([3,2,3]),3)
+        self.assertEqual(self.solution.majorityElement([2,2,1,1,1,2,2]),2)
+        
 if __name__ == '__main__':
     unittest.main()
