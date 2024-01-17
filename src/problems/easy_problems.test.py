@@ -133,5 +133,12 @@ class TestStringMethods(unittest.TestCase):
         self.assertEqual(self.solution.majorityElement([3,2,3]),3)
         self.assertEqual(self.solution.majorityElement([2,2,1,1,1,2,2]),2)
         
+    def testMaxProfit(self):
+        self.assertEqual(self.solution.maxProfit([1]),0)
+        self.assertEqual(self.solution.maxProfit([1,1]),0)
+        self.assertEqual(self.solution.maxProfit([1,2]),1)
+        self.assertEqual(self.solution.maxProfit([7,1,5,3,6,4]),5)
+        self.assertEqual(self.solution.maxProfit([7,6,4,3,1]),0)
+        
 if __name__ == '__main__':
     unittest.main()

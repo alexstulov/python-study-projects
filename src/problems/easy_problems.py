@@ -1,4 +1,3 @@
-from icecream import ic
 from collections import Counter
 def generateAdjacentStrings(length):
     alternatingString = ""
@@ -8,6 +7,16 @@ def generateAdjacentStrings(length):
 
 def countStringsDifference(str1, str2):
     return sum(1 for a, b in zip(str1, str2) if a != b)
+
+def maxProfitHelper(prices,thePrice):
+    if len(prices) == 0:
+        return 0
+    maxDiff = 0
+    for price in prices:
+        if price-thePrice > maxDiff:
+            maxDiff = price-thePrice
+    laterDiff = maxProfitHelper(prices[1:],prices[0])
+    return max(maxDiff, laterDiff)
 
 class ListNode:
     def __init__(self, val=0, next=None):
@@ -245,3 +254,18 @@ class Solution:
             if value > majority:
                 result = key
         return result
+    def maxProfit(self, prices): 
+        # recursive brute force solution - big space complexity     
+        # if len(prices) == 1:
+        #     return 0
+        # return maxProfitHelper(prices[1:],prices[0])
+        
+        # compare each element with smallest so far
+        minElement = prices[0]
+        maxDiff = 0
+        for i in range(1,len(prices)):
+            maxDiff = max(prices[i]-minElement, maxDiff)
+            minElement = min(prices[i],minElement)
+        return maxDiff
+
+
