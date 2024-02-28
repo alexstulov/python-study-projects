@@ -140,5 +140,14 @@ class TestStringMethods(unittest.TestCase):
         self.assertEqual(self.solution.maxProfit([7,1,5,3,6,4]),5)
         self.assertEqual(self.solution.maxProfit([7,6,4,3,1]),0)
         
+    def testIsPalindrome(self):
+        self.assertEqual(self.solution.isPalindrome(' '),True)
+        self.assertEqual(self.solution.isPalindrome('.,'),True)
+        self.assertEqual(self.solution.isPalindrome('race a car'),False)
+        self.assertEqual(self.solution.isPalindrome('==A man, a plan, a canal: Panama=='),True)
+        self.assertEqual(self.solution.isPalindrome('ab_a'),True)
+        self.assertEqual(self.solution.isPalindrome('0P'),False)
+        self.assertEqual(self.solution.isPalindrome('\"Sue,\" Tom smiles, \"Selim smote us.\"'),True)
+        
 if __name__ == '__main__':
     unittest.main()

@@ -1,4 +1,6 @@
+from icecream import ic
 from collections import Counter
+import re
 def generateAdjacentStrings(length):
     alternatingString = ""
     for i in range(length+1):
@@ -267,5 +269,35 @@ class Solution:
             maxDiff = max(prices[i]-minElement, maxDiff)
             minElement = min(prices[i],minElement)
         return maxDiff
-
-
+    def isPalindrome(self, input):
+        input = ''.join(re.findall('[a-zA-Z0-9]',input)).lower()
+        left = 0
+        right = len(input)-1
+            
+        # ic(re.match('[a-zA-Z0-9]',input[left]))
+        # ic(re.match('[a-zA-Z0-9]',input[right]))
+        # return len(input)
+        while left < right:
+            if input[left]!=input[right]:
+                return False
+            left+=1
+            right-=1
+        return True
+    def isPalindrome(self, input: str) -> bool:
+        # two pointers solution
+        input = ''.join(re.findall('[a-zA-Z0-9]',input)).lower()
+        left = 0
+        right = len(input)-1
+            
+        while left < right:
+            if input[left]!=input[right]:
+                return False
+            left+=1
+            right-=1
+        return True
+        # py-featured solution
+        # input = ''.join(re.findall('[a-zA-Z0-9]',input)).lower()
+        # reversed = list(input)
+        # reversed.reverse()
+        # reversed = ''.join(reversed)
+        # return input == reversed
