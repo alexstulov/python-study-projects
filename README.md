@@ -15,9 +15,10 @@ Several projects from [Scientific Computing with Python](https://www.freecodecam
 
 A bunch of cases from [Data analysis with Python](https://www.freecodecamp.org/learn/data-analysis-with-python/data-analysis-with-python-projects/)
 
-* Mean, variance, standard deviation
-* Demographic data analyzer
-* Medical data visualizer
+* Mean, variance, standard deviation,
+* Demographic data analyzer,
+* Medical data visualizer,
+* Page view time series visualizer.
 
 ## Other projects
 
