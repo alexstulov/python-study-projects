@@ -230,21 +230,6 @@ class Solution:
             else:
                 temp = temp.next
         return head
-    def mergeSortedLists(self, nums1, m, nums2, n):
-        for i in range(n): # join lists in-place in nums1
-            nums1[m+i]=nums2[i-n]
-        noSwaps = False
-        for i in reversed(range(m+n)): # bubble sort here with no-swaps check
-            noSwaps=True
-            for j in range(i):
-                if (nums1[j]>nums1[j+1]):
-                    temp = nums1[j+1]
-                    nums1[j+1]=nums1[j]
-                    nums1[j]=temp
-                    noSwaps=False
-            if(noSwaps):
-                break
-        return nums1
     def majorityElement(self, nums): # frequency counter approach
         theDict = Counter(nums) # a bit faster
         majority = len(nums)/2
